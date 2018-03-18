@@ -2,11 +2,11 @@
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
 
     <persistence-unit name="oeuvresUnit">
-        <class>com.epul.Metier.AdherentEntity</class>
-        <class>com.epul.Metier.OeuvrepretEntity</class>
-        <class>com.epul.Metier.OeuvreventeEntity</class>
-        <class>com.epul.Metier.ProprietaireEntity</class>
-        <class>com.epul.Metier.ReservationEntity</class>
+        <class>com.epul.metier.AdherentEntity</class>
+        <class>com.epul.metier.OeuvrepretEntity</class>
+        <class>com.epul.metier.OeuvreventeEntity</class>
+        <class>com.epul.metier.ProprietaireEntity</class>
+        <class>com.epul.metier.ReservationEntity</class>
         <properties>
             <property name="toplink.jdbc.url" value="jdbc:mysql://localhost:3306/baseoeuvre"/>
             <property name="toplink.jdbc.driver" value="com.mysql.jdbc.Driver"/>

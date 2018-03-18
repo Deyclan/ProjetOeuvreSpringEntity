@@ -1,4 +1,4 @@
-package com.epul.Metier;
+package com.epul.metier;
 
 import javax.persistence.*;
 import java.util.Collection;

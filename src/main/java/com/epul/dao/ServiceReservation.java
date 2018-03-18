@@ -1,7 +1,6 @@
 package com.epul.dao;
 
-import com.epul.Metier.OeuvrepretEntity;
-import com.epul.Metier.ReservationEntity;
+import com.epul.metier.ReservationEntity;
 
 import javax.persistence.EntityTransaction;
 import java.util.List;
