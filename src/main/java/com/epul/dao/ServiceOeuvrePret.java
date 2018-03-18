@@ -1,18 +1,18 @@
 package com.epul.dao;
 
+import com.epul.Metier.AdherentEntity;
 import com.epul.Metier.OeuvrepretEntity;
-import com.epul.Metier.ProprietaireEntity;
 
 import javax.persistence.EntityTransaction;
 import java.util.List;
 
-public class ServiceProprietaire extends EntityService {
+public class ServiceOeuvrePret extends EntityService {
 
-    public void insertProprietaire(ProprietaireEntity proprietaire) {
+    public void insertOeuvrePret(OeuvrepretEntity oeuvrepret) {
         try {
             EntityTransaction transaction = startTransaction();
             transaction.begin();
-            entityManager.persist(proprietaire);
+            entityManager.persist(oeuvrepret);
             transaction.commit();
             entityManager.close();
         }catch (Exception e){
@@ -20,12 +20,12 @@ public class ServiceProprietaire extends EntityService {
         }
     }
 
-    public List<ProprietaireEntity> getListOeuvrePret(){
-        List<ProprietaireEntity> OeuvrePretList = null;
+    public List<OeuvrepretEntity> getListOeuvrePret(){
+        List<OeuvrepretEntity> OeuvrePretList = null;
         try{
             EntityTransaction transaction = startTransaction();
             transaction.begin();
-            OeuvrePretList = (List<ProprietaireEntity>) entityManager.createQuery("select distinct p from ProprietaireEntity p order by p.nomProprietaire").getResultList();
+            OeuvrePretList = (List<OeuvrepretEntity>) entityManager.createQuery("select o from OeuvrepretEntity o order by o.titreOeuvrepret").getResultList();
         }
         catch (Exception e){
             e.printStackTrace();
@@ -33,16 +33,17 @@ public class ServiceProprietaire extends EntityService {
         return OeuvrePretList;
     }
 
-    public ProprietaireEntity getOeuvrePretById(int id){
-        ProprietaireEntity proprietaire = null;
+    public OeuvrepretEntity getOeuvrePretByIdOeuvre(int id){
+        OeuvrepretEntity oeuvre = null;
         try {
             EntityTransaction transaction = startTransaction();
             transaction.begin();
-            proprietaire = (ProprietaireEntity) entityManager.createQuery("select * from ProprietaireEntity where idProprietaire = "+id).getResultList().get(0);
+            oeuvre = (OeuvrepretEntity) entityManager.createQuery("select * from OeuvrepretEntity where idOeuvrepret = "+id).getResultList().get(0);
             entityManager.close();
         }catch (Exception e){
             e.printStackTrace();
         }
-        return proprietaire;
+        return oeuvre;
     }
+
 }
